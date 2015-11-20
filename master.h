@@ -2,11 +2,12 @@
 
 using std namespace;
 
+// the following is from the pseudocode in chapter 7 powerpoint
 
-void Partition(char *A, int p, int r)
+int Partition(char *A, int p, int r)
 {
-  x = A[r];
-  i =p-1;
+  char x = A[r];
+  int i = p-1;
   int j;
   for(j = p; j<r-1; j++)
     {
