@@ -1,4 +1,6 @@
 #include <iostream>
+#include< stdio.h>
+#include <math.h>
 
 using std namespace;
 
@@ -28,5 +30,33 @@ void QuickSort(char *A, int p, int r)
       q = Partition(A,p,r);
       QuickSort(A, p, q-1);
       QuickSort(A, q+1, r);
+    }
+}
+
+void InsertionSort(char* A)
+{
+  int j;
+
+  for(j=2; j<A.size; j++)//look up using .size for an array in c++
+    {
+      /* insert A[j] into the sorted sequence A[1 ... j-1] */
+      i = j-1;
+      while(i > 0 && A[i] > key)
+	{
+	  A[i+1] = A[i];
+	  i = i-1;
+	}
+      A[i+1] = key;
+    }
+}
+
+void MergeSort(char* A, int p, int r)
+{
+  if(p<r)
+    {
+      q = floor((p+r)/2);
+      MergeSort(A, p, q);
+      MergeSort(A, q+1, r);
+      MergeSort(A,p, q, r);
     }
 }
