@@ -6,18 +6,13 @@ DEBUG = -g
 CFLAGS = -Wall -std=c++11 -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
 
-all: bst
+all: sort
 
-bst: bst.o
-	$(CC) $(LFLAGS) -o bst bst.o
+sort: sort.o
+	$(CC) $(LFLAGS) -o sort sort.o
 
-bst.o: master.h
-	$(CC) $(CFLAGS) -c bst.cpp
-
-.PHONY: run
-
-run: ./bst
-	 ./bst ${ARGS}
+sort.o: master.h
+	$(CC) $(CFLAGS) -c sort.cpp
 
 .PHONY: clean
 
