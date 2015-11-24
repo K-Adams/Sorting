@@ -14,11 +14,18 @@ int main(int argc, char * argv[])
   int index = 0;
   int input[25];
  
+
   if(argc < 3 )
   {
     cout<<"Command character error"<<endl;
     return 0;
   }
+
+  cout << "argc = " << argc << endl; 
+  // for(i = 0; i < argc; i++) 
+  //cout << "argv[" << i << "] = " << argv[i] << endl; 
+  //return 0; 
+
   //if(argv[1] != '-q' || argv[1] != '-i' || argv[1] != '-m')
   //{
   //cout<<"Command character error"<<endl;
@@ -26,17 +33,27 @@ int main(int argc, char * argv[])
   //}
   if((strncmp (argv[1],"-q",2) == 0))
   {
-    const char* text = argv[2+index];
-    int number = atoi(text);
+    cout<<"IF"<<endl;
+    //const char* text = argv[2+index];
+    //int number = atoi(text);
 
-    for(argc >= 3; size++;)
+    //while(argc > 2 && (strncmp(argv[argc],"\0",2) != 0))
+    while(index < argc)
     {
-      input[index] = number;
+      cout<<"WHILE"<<endl;
+      input[index] = stoi(argv[2 + index]);
       index ++;
+      size++;
     }
-    cout<<"Quick sort: ";
-    QuickSort(input, input[0], input[size-1], size);
-    cout<<endl;
-    cout<<"Input size: "<< size<< endl;
+    //cout<<"Quick sort: ";
+    //QuickSort(input, input[0], input[size-1], size);
+    //cout<<endl;
+    //cout<<"Input size: "<< size<< endl;
+    //return 0;
   }  
+  cout<<"Quick sort: ";
+  QuickSort(input, input[0], input[size-1], size);
+  cout<<endl;
+  cout<<"Input size: "<< size<< endl;
+  return 0;
 }
