@@ -1,10 +1,11 @@
 #include <iostream>
-#include< stdio.h>
+#include <stdio.h>
 #include <math.h>
 #include <utility>
 #include <algorithm>
+#include <stdlib.h>
 
-using std namespace;
+using namespace std;
 
 // the following is from the pseudocode in chapter 7 powerpoint
 
@@ -18,7 +19,7 @@ swap(A[middle], A[left]);
 
   int i = left-1;
   int j;
-  for(j = left; j<r-1; j++)
+  for(j = left; j<right-1; j++)
     {
       if(A[j] <= pivot)
 	{
@@ -32,18 +33,18 @@ swap(A[middle], A[left]);
 
 void QuickSort(int *A, int left, int right, const int size)
 {
-	int p = partition(A, left, right);
-	cout << "QSC:" << left << "," << right << " part=" << part << "\n";
+	int p = Partition(A, left, right);
+	cout << "QSC:" << left << "," << right << " part=" << p << "\n";
 	
   if(left < p - right)
     {
-      QuickSort(A, left, p-1);
-      QuickSort(A, p+1, right);
+      QuickSort(A, left, p-1, size);
+      QuickSort(A, p+1, right, size);
     }
     
     if(p + 1 < right)
     {
-    	Quicksort(A, p + 1, right, size);
+    	QuickSort(A, p + 1, right, size);
     }
 }
 
