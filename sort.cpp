@@ -13,7 +13,7 @@ int main(int argc, char * argv[])
   int size = 0;
   int index = 0;
   int input[25];
- 
+  int *A = nullptr;
 
   if(argc < 3 )
   {
@@ -41,19 +41,14 @@ int main(int argc, char * argv[])
     while(index < argc)
     {
       cout<<"WHILE"<<endl;
-      input[index] = stoi(argv[2 + index]);
-      index ++;
+      input[index] = atoi(argv[2 + index]);
+      index++;
       size++;
     }
-    //cout<<"Quick sort: ";
-    //QuickSort(input, input[0], input[size-1], size);
-    //cout<<endl;
-    //cout<<"Input size: "<< size<< endl;
-    //return 0;
+    cout<<"Quick sort: ";
+    QuickSort(A, input[0], input[size-1], size);
+    cout<<endl;
+    cout<<"Input size: "<< size<< endl;
+    return 0;
   }  
-  cout<<"Quick sort: ";
-  QuickSort(input, input[0], input[size-1], size);
-  cout<<endl;
-  cout<<"Input size: "<< size<< endl;
-  return 0;
 }
