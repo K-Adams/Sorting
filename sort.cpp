@@ -13,8 +13,8 @@ int main(int argc, char * argv[])
   int size = 0;
   int index = 0;
   int input[25];
-  int i = stoi(argv[3 + index]);
-  int *A = nullptr;
+  // int i = atoi(argv[3 + index]);
+  int *A = input;
 
   if(argc < 3 )
   {
@@ -34,23 +34,17 @@ int main(int argc, char * argv[])
   //}
   if((strncmp (argv[1],"-q",2) == 0))
   {
-    cout<<"IF"<<endl;
-    //const char* text = argv[2+index];
-    //int number = atoi(text);
-
-    //while(argc > 2 && (strncmp(argv[argc],"\0",2) != 0))
     while(index <= argc)
     {
-      cout<<"WHILE"<<endl;
-      input[index] = i;
+      input[index] = atoi(argv[2 + index]);
       cout<<"Input: "<<input[index]<<endl;
       index++;
       size++;
     }
     cout<<"Quick sort: ";
-    QuickSort(A, input[0], input[size-1], size);
+    QuickSort(A, input[0], input[size-1], size);//issues with the first parameter potentially seg fault
     cout<<endl;
     cout<<"Input size: "<< size<< endl;
-    return 0;
   }  
+  return EXIT_SUCCESS;
 }
