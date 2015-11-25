@@ -14,7 +14,7 @@ int main(int argc, char * argv[])
   int index = 0;
   int input[25];
   // int i = atoi(argv[3 + index]);
-  int *A = input;
+  int *B = input;
 
   if(argc < 3 )
   {
@@ -41,8 +41,7 @@ int main(int argc, char * argv[])
       index++;
       size++;
     }
-    cout<<"Quick sort: ";
-    QuickSort(A, input[0], input[size-1], size);//issues with the first parameter potentially seg fault
+    QuickSort(B, input[0], input[size-1], size);//issues with the first parameter potentially seg fault
     cout<<endl;
     cout<<"Input size: "<< size<< endl;
   }  

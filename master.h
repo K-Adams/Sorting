@@ -11,12 +11,12 @@ using namespace std;
 
 int Partition(int *A, int left, int right)
 {
-int middle = left + (right - left)/2;
-int pivot = A[middle];
-
+  int middle = left + (right - left)/2;
+  int pivot = A[middle];
+  
 //if doesnt work use std::swap()....
- std::swap(A[middle], A[left]);
-
+  std::swap(A[middle], A[left]);
+ 
   int i = left-1;
   int j;
   for(j = left; j<right-1; j++)
@@ -33,8 +33,8 @@ int pivot = A[middle];
 
 void QuickSort(int *A, int left, int right, const int size)
 {
-	int p = Partition(A, left, right);
-	cout << "QSC:" << left << "," << right << " part=" << p << "\n";
+  int p = Partition(A, left, right);
+  cout << "QSC:" << left << "," << right << " part=" << p << "\n";
 	
   if(left < p - right)
     {
