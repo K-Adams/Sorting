@@ -13,6 +13,7 @@ int main(int argc, char * argv[])
   int size = 0;
   int index = 0;
   int input[25];
+  int i = stoi(argv[3 + index]);
   int *A = nullptr;
 
   if(argc < 3 )
@@ -38,10 +39,11 @@ int main(int argc, char * argv[])
     //int number = atoi(text);
 
     //while(argc > 2 && (strncmp(argv[argc],"\0",2) != 0))
-    while(index < argc)
+    while(index <= argc)
     {
       cout<<"WHILE"<<endl;
-      input[index] = atoi(argv[2 + index]);
+      input[index] = i;
+      cout<<"Input: "<<input[index]<<endl;
       index++;
       size++;
     }
