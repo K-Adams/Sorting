@@ -36,24 +36,24 @@ void QuickSort(int *A, int left, int right, const int size)
   int p = Partition(A, left, right);
   cout << "QSC:" << left << "," << right << " part=" << p << "\n";
 	
-  if(left < p - right)
+  if(left < (p - right))
     {
       QuickSort(A, left, p-1, size);
       QuickSort(A, p+1, right, size);
     }
     
-    if(p + 1 < right)
+  if((p + 1) < right)
     {
     	QuickSort(A, p + 1, right, size);
     }
 }
 
 /*
-void InsertionSort(char* A)
+void InsertionSort(char* A, int size)
 {
   int j;
 
-  for(j=2; j<A.size; j++)//look up using .size for an array in c++
+  for(j=2; j<size; j++)//look up using .size for an array in c++
     {
       // insert A[j] into the sorted sequence A[1 ... j-1] 
       i = j-1;

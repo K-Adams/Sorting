@@ -8,6 +8,7 @@
 #include <stdlib.h>
 using namespace std;
 
+//UPDATE
 int main(int argc, char * argv[])
 {
   int size = 0;
@@ -32,9 +33,9 @@ int main(int argc, char * argv[])
   //cout<<"Command character error"<<endl;
   //return 0;
   //}
-  if((strncmp (argv[1],"-q",2) == 0))
+  while((strncmp (argv[1],"-q",2) == 0))
   {
-    while(index <= argc)
+    if(index <= (argc - 2))
     {
       input[index] = atoi(argv[2 + index]);
       cout<<"Input: "<<input[index]<<endl;
