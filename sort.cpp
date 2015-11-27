@@ -8,15 +8,15 @@
 #include <stdlib.h>
 using namespace std;
 
-//UPDATE: cmd line input Parsing bugs FIXED
+//UPDATE: cmd line input Parsing bugs FIXED, QuickSort works
 //Quicksort function WORKING
 //TODO: NEED TO FIX UP OUTPUT TO SPECS
+//TODO: Complete and test Insert and Merge sorts
 int main(int argc, char * argv[])
 {
   int size = 0;
   int index = 0;
   int input[25];
-  //int *B = input;
 
   if(argc < 3 )
   {
@@ -24,17 +24,9 @@ int main(int argc, char * argv[])
     return 0;
   }
 
-  cout << "argc = " << argc << endl; 
-  // for(i = 0; i < argc; i++) 
-  //cout << "argv[" << i << "] = " << argv[i] << endl; 
-  //return 0; 
-
-  //if(argv[1] != '-q' || argv[1] != '-i' || argv[1] != '-m')
-  //{
-  //cout<<"Command character error"<<endl;
-  //return 0;
-  //}
-  while((strncmp (argv[1],"-q",2) == 0))
+  cout << "Total number of command line arguments = " << argc << endl; 
+  
+  while((strncmp (argv[1],"-q",2) == 0) || (strncmp (argv[1],"-i",2) == 0) || (strncmp (argv[1],"-m",2) == 0))
   {
     if(index < (argc - 2))
       {
@@ -50,13 +42,27 @@ int main(int argc, char * argv[])
       }
     //QuickSort(input, input[0], input[size-1], size);
   }
+
   cout<<"Before sorting: ";
   PrintArray(input, size);
-  cout<<endl;  
-  QuickSort(input, 0, size-1);
-  cout<<"After sorting: ";
-  PrintArray(input, size);
   cout<<endl;
-  cout<<"Input size: "<< size<< endl;
+  if((strncmp (argv[1],"-q",2) == 0)) 
+    {
+      QuickSort(input, 0, size-1);
+      cout<<"After sorting: ";
+      PrintArray(input, size);
+      cout<<endl;
+      cout<<"Input size: "<< size<< endl;
+    }
+
+  if((strncmp(argv[1], "-i",2)==0))
+    {
+      InsertionSort(input, size);
+      cout<<"After sorting: ";
+      PrintArray(input, size);
+      cout<<endl<<"Input size: "<<size<<endl;
+    }
+
+
   return EXIT_SUCCESS;
 }
