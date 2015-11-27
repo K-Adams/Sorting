@@ -16,8 +16,7 @@ int main(int argc, char * argv[])
   int size = 0;
   int index = 0;
   int input[25];
-  // int i = atoi(argv[3 + index]);
-  int *B = input;
+  //int *B = input;
 
   if(argc < 3 )
   {
@@ -39,8 +38,8 @@ int main(int argc, char * argv[])
   {
     if(index < (argc - 2))
       {
-	input[index] = atoi(argv[2 + index]);//seg faults here. loop continues to enter conditional after parsing all inputs. cannot halt
-	cout<<"Input: "<<input[index]<<endl;
+	input[index] = atoi(argv[2 + index]);
+	//cout<<"Input: "<<input[index]<<endl;
 	index++;
 	size++;
       }
@@ -49,9 +48,14 @@ int main(int argc, char * argv[])
 	input[index+1] = '\0';
 	break;
       }
-    QuickSort(B, input[0], input[size-1], size);
-  }  
-  //QuickSort(B, input[0], input[size-1], size);//Quicksort is operating as intended                                                                                        
+    //QuickSort(input, input[0], input[size-1], size);
+  }
+  cout<<"Before sorting: ";
+  PrintArray(input, size);
+  cout<<endl;  
+  QuickSort(input, 0, size-1);
+  cout<<"After sorting: ";
+  PrintArray(input, size);
   cout<<endl;
   cout<<"Input size: "<< size<< endl;
   return EXIT_SUCCESS;

@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
@@ -9,13 +10,16 @@ using namespace std;
 
 // the following is from the pseudocode in chapter 7 powerpoint
 
+int c = 0;
+
 int Partition(int *A, int left, int right)
 {
+  /*
   int middle = left + (right - left)/2;
   int pivot = A[middle];
   
 //if doesnt work use std::swap()....
-  std::swap(A[middle], A[left]);
+  //std::swap(A[middle], A[left]);
  
   int i = left-1;
   int j;
@@ -28,24 +32,49 @@ int Partition(int *A, int left, int right)
 	}
       A[i+1]= A[right];
     }
+  std::swap(A[middle], A[left]);
+
   return i + 1;
+*/
+  int  p = left;
+  int pivot = A[left];
+ 
+  for(int i = left+1 ; i <= right ; i++)
+    {
+      /* If you want to sort the list in the other order, change "<=" to ">" */
+      if(A[i] <= pivot)
+        {
+	  p++;
+	  std::swap(A[i], A[p]);
+        }
+    }
+ 
+  std::swap(A[p], A[left]);
+ 
+  return p;
 }
 
-void QuickSort(int *A, int left, int right, const int size)
+void QuickSort(int *A, int left, int right)
 {
-  int p = Partition(A, left, right);
-  cout << "QSC:" << left << "," << right << " part=" << p << "\n";
-	
-  if(left < (p - right))
+  int pivot;
+  if(left<right)
     {
-      QuickSort(A, left, p-1, size);
-      QuickSort(A, p+1, right, size);
+      pivot = Partition(A, left, right); 	
+      QuickSort(A, left, pivot-1);
+      QuickSort(A,pivot+1,right);
+      c++;
     }
-    
-  if((p + 1) < right)
+}
+
+void PrintArray(int A[], int size)
+{
+  int i;
+  for(i = 0; i<size; i++)
     {
-    	QuickSort(A, p + 1, right, size);
+      cout<<A[i]<<" ";
     }
+  cout<<endl;
+  cout<<"Total # Comparisons: "<<c<<endl;
 }
 
 /*
