@@ -78,46 +78,67 @@ void InsertionSort(int *A, int size)
 	}
       A[i+1] = key;
     }
-	c++;
+  c++;
 }
 
 //Merge sort psuedocode pulled from ch1-3 ppt
 //The first two random box symbols are infinity symbols from the pseudo code
 //not sure what to do with the infinity symbol
 //The last box symbol isa <= symbol from the pseudo code 
-/*
-void MergeSort(int *A, int p, int r)
+
+void Merge(int *A, int low, int mid, int high)
 {
-  int q;
-  if(p<r)
+  int i, j, k;
+  int n1 = mid - low + 1;
+  int n2 = high - mid;
+  int L[n1 + 1]; 
+  int R[n2 + 1];
+
+  for(i = 0; i <= n1; i++)
     {
-      q = floor((p+r)/2);
-      MergeSort(A, p, q);
-      MergeSort(A, q+1, r);
-      MergeSort(A,p, q, r);
+      L[i] = A[low + i - 1];
+      c++;
+    }
+ 
+  for(j = 0; j <= n2; j++)
+    { 
+      R[j] = A[mid + j];
+      c++;
+    }
+
+  //L[n1 + 1] = ï‚¥
+  //R[n2 + 1] = ï‚¥
+  i = 1;
+  j = 1;
+
+  for(k = low; k<=high; k++)
+    {
+      c++;
+      if(L[i] <= R[j])
+	{
+	  c++;
+	  A[k] = L[i];
+	  i = i + 1;
+	}
+      else 
+	{
+	  c++;
+	  A[k] = R[j];	    
+	  j = j + 1;
+	}
     }
 }
 
-void Merge(int *A, int p, int q, int r)
+void MergeSort(int *A, int low, int high)
 {
- n1 = q â€“ p + 1
- n2 = r â€“ q
-Let L[1 â€¦ n1 + 1] and R[1 â€¦ n2 + 1] be new arrays
-for i =1 to n1
-    L[i] = A[p + i - 1] 
-for j = 1 to n2 
-    R[j] = A[q + j]
- L[n1 + 1] = ï‚¥
-R[n2 + 1] = ï‚¥
-i = 1
-j = 1
- for k = p to r
-    if L[i] ï‚£ R[j]
-         A[k] = L[i]
-         i = i + 1
-      else A[k] = R[j]
-         j = j + 1
-
+  int q;
+  if(low<high)
+    {
+      c++;
+      q = ((low+high)/2);//floor?
+      MergeSort(A, low, q);
+      MergeSort(A, q+1, high);
+      Merge(A,low, q, high);
+    }
 }
 
-*/

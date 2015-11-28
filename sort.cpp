@@ -63,6 +63,14 @@ int main(int argc, char * argv[])
       cout<<endl<<"Input size: "<<size<<endl;
     }
 
+  if((strncmp(argv[1], "-m",2)==0))
+    {
+      MergeSort(input, 0, size-1);
+      cout<<"After sorting: ";
+      PrintArray(input, size);
+      cout<<endl<<"Input size: "<<size<<endl;
+    }
+
 
   return EXIT_SUCCESS;
 }
