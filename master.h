@@ -91,36 +91,36 @@ void Merge(int *A, int low, int mid, int high)
   int i, j, k;
   int n1 = mid - low + 1;
   int n2 = high - mid;
-  int L[n1 + 1]; 
-  int R[n2 + 1];
+  int L[n1];
+int R[n2]; 
 
-  for(i = 0; i <= n1; i++)
+   for(i = 0; i < n1; i++)
     {
-      L[i] = A[low + i - 1];
+      L[i] = A[low + i];
       c++;
     }
  
-  for(j = 0; j <= n2; j++)
+  for(j = 0; j < n2; j++)
     { 
-      R[j] = A[mid + j];
+      R[j] = A[mid + j+1];
       c++;
     }
 
-  //L[n1 + 1] = ï‚¥
-  //R[n2 + 1] = ï‚¥
-  i = 1;
-  j = 1;
+  //L[0] = 4;
+  //R[0] = 3;
+  i = 0;
+  j = 0;
 
   for(k = low; k<=high; k++)
     {
       c++;
-      if(L[i] <= R[j])
+      if(i<n1 && ((j>=n2)|| (L[i] <= R[j])))
 	{
 	  c++;
 	  A[k] = L[i];
 	  i = i + 1;
 	}
-      else 
+      else
 	{
 	  c++;
 	  A[k] = R[j];	    
@@ -135,10 +135,9 @@ void MergeSort(int *A, int low, int high)
   if(low<high)
     {
       c++;
-      q = ((low+high)/2);//floor?
+      q = floor((low+high)/2);//floor?
       MergeSort(A, low, q);
       MergeSort(A, q+1, high);
       Merge(A,low, q, high);
     }
 }
-
