@@ -16,7 +16,7 @@ int main(int argc, char * argv[])
 {
   int size = 0;
   int index = 0;
-  int input[25];
+  int input[argc-2];
 
   if(argc < 3 )
   {
