@@ -7,10 +7,7 @@
 
 using namespace std;
 
-// the following is from the pseudocode in chapter 7 powerpoint
-
-//total num comparisons. Placs c++ in the sorting function.
-//Called in PrintArray
+//total num comparisons. 
 long c = 0;
 
 int Partition(int *A, int left, int right)
@@ -21,7 +18,6 @@ int Partition(int *A, int left, int right)
   for(int i = left+1 ; i <= right ; i++)
     {
       c++;
-      /* If you want to sort the list in the other order, change "<=" to ">" */
       if(A[i] <= pivot)
         {
 	  p++;
@@ -54,12 +50,8 @@ void PrintArray(int A[], int size)
       cout<<A[i]<<" ";
     }
   cout<<endl;
-  cout<<"Total # Comparisons: "<<c<<endl;
 }
 
-//Insertion sort psuedo code pulled from ch1-3 ppt
-//Currently not working properly
-//May need supplemental functions
 void InsertionSort(int *A, int size)
 {
   int j;
@@ -79,11 +71,7 @@ void InsertionSort(int *A, int size)
       A[i+1] = key;
     }
 }
-
-//Merge sort psuedocode pulled from ch1-3 ppt
-//The first two random box symbols are infinity symbols from the pseudo code
-//not sure what to do with the infinity symbol
-//The last box symbol isa <= symbol from the pseudo code 
+ 
 
 void Merge(int *A, int low, int mid, int high)
 {
@@ -103,8 +91,6 @@ int R[n2];
       R[j] = A[mid + j+1];
     }
 
-  //L[0] = 4;
-  //R[0] = 3;
   i = 0;
   j = 0;
 
@@ -130,7 +116,7 @@ void MergeSort(int *A, int low, int high)
   c++;
   if(low<high)
     {
-      q = floor((low+high)/2);//floor?
+      q = floor((low+high)/2);
       MergeSort(A, low, q);
       MergeSort(A, q+1, high);
       Merge(A,low, q, high);
